@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import date
 from pathlib import Path
 from sqlalchemy import create_engine
 import shutil
@@ -42,14 +43,17 @@ def load_bronze_file(path: Path) -> pd.DataFrame:   # vraagt om een pad naar een
 # ---------------------------------------------------------------------------------------
 # 5. Data opschonen # functie die de data opschoont en teruggeeft als DataFrame
 # ---------------------------------------------------------------------------------------
-def clean_data(df: pd.DataFrame) -> pd.DataFrame:                           # vraagt om een df en geeft een geschoonde df terug
-    df.columns = df.columns.str.strip().str.replace(" ", "")                # verwijdert eventuele spaties in de kolomnamen
-    df = df.dropna(subset=["CustomerID", "Invoice", "StockCode"])           # verwijdert rijen waar deze belangrijke kolommen leeg zijn
-    df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], errors="coerce")  # probeert de 'InvoiceDate' kolom om te zetten naar datetime
-    df["Quantity"] = pd.to_numeric(df["Quantity"], errors="coerce")         # probeert de 'Quantity' kolom om te zetten naar numeriek
-    df["Price"] = df["Price"].str.replace(",", ".", regex=False)            # vervangt komma's door punten in de 'Price' kolom
-    df["Price"] = pd.to_numeric(df["Price"], errors="coerce")               # probeert de 'UnitPrice' kolom om te zetten naar numeriek
-    df["Total_price"] = (df["Quantity"] * df["Price"]).round(2)             # voegt een nieuwe kolom 'total_amount' berekening toe
+def clean_data(df: pd.DataFrame) -> pd.DataFrame:                                      # vraagt om een df en geeft een geschoonde df terug
+    df.columns = df.columns.str.strip().str.replace(" ", "")                           # verwijdert eventuele spaties in de kolomnamen
+    df = df.dropna(subset=["CustomerID", "Invoice", "StockCode"])                      # verwijdert rijen waar deze belangrijke kolommen leeg zijn
+    df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"],                              # kolom om zetten naar datetime, en haalt alleen de datum eruit
+    errors="coerce",
+    dayfirst=True
+    ).dt.date
+    df["Quantity"] = pd.to_numeric(df["Quantity"], errors="coerce")                    # probeert de 'Quantity' kolom om te zetten naar numeriek
+    df["Price"] = df["Price"].str.replace(",", ".", regex=False)                       # vervangt komma's door punten in de 'Price' kolom
+    df["Price"] = pd.to_numeric(df["Price"], errors="coerce")                          # probeert de 'UnitPrice' kolom om te zetten naar numeriek
+    df["Total_price"] = (df["Quantity"] * df["Price"]).round(2)                        # voegt een nieuwe kolom 'total_amount' berekening toe
 
     return df
 
