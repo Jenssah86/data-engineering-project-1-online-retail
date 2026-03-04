@@ -25,4 +25,4 @@ def test_clean_data_removes_invalid_rows():  # testfunctie die controleert of cl
     # assert - controleert of er nog maar één rij over is na het opschonen van de data, en of die rij de juiste CustomerID heeft
     assert len(cleaned) == 1                            # controleert of er nog maar één rij over is na het opschonen van de data
     assert cleaned.iloc[0]["CustomerID"] == 12345       # controleert of de overgebleven rij de juiste CustomerID heeft, namelijk 12345
-    assert cleaned.iloc[0]["Total_price"] == 2.50       # controleert of de Total_price correct is berekend als 2.50 (1 * 2.50)
+    assert cleaned.iloc[0]["Price"] == 2.50             # controleert of de prijs correct is omgezet en dat de komma is vervangen door een punt
