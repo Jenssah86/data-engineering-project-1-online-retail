@@ -38,5 +38,5 @@ en **CI/CD via GitHub Actions**.
 
 Het doel van dit project is het opzetten van een complete, lokaal draaiende data‑engineering workflow
 
-die moderne technieken combineert en geschikt is als portfolio‑onderdeel.
+die moderne technieken combineert.
 
