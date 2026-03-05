@@ -16,7 +16,7 @@ en **CI/CD via GitHub Actions**.
 
 * Python (Pandas, SQLAlchemy)
 * MySQL (XAMPP)
-* SQL (CTE’s, CASE, joins, stored procedures)
+* SQL (INSERTS, CREATE TABLE, stored procedures)
 * GitHub Actions (CI/CD)
 * Windows Task Scheduler
 * VS Code
