@@ -40,3 +40,7 @@ Het doel van dit project is het opzetten van een complete, lokaal draaiende data
 
 die moderne technieken combineert.
 
+
+
+(Een handleiding van dit dataproject is te vinden in de map **docs**)
+
