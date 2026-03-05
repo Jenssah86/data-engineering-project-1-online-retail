@@ -1,3 +1,5 @@
+-- create_fact_sales.sql --
+
 -- Create fact table for sales
 CREATE TABLE IF NOT EXISTS fact_sales (
     sales_key INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,24 +14,3 @@ CREATE TABLE IF NOT EXISTS fact_sales (
     FOREIGN KEY (product_key) REFERENCES dim_product(product_key), -- Establish foreign key relationship with dim_product
     FOREIGN KEY (date_key) REFERENCES dim_date(date_key) -- Establish foreign key relationship with dim_date
 );
-
--- Insert data into fact_sales by joining silver_sales with dimension tables to get the corresponding keys
-INSERT INTO fact_sales (
-    invoice_id, customer_key, product_key, date_key,
-    quantity, price, total_price
-)
-SELECT
-    s.Invoice AS invoice_id,
-    c.customer_key,
-    p.product_key,
-    DATE_FORMAT(s.InvoiceDate, '%Y%m%d') AS date_key, -- Transform InvoiceDate into the same format as date_key in dim_date
-    s.Quantity,
-    s.Price,
-    s.Total_price
-FROM silver_sales s
-LEFT JOIN dim_customer c 
-    ON c.customer_id = s.CustomerID
-LEFT JOIN dim_product p 
-    ON p.stock_code = s.StockCode
-LEFT JOIN dim_date d 
-    ON d.date_key = DATE_FORMAT(s.InvoiceDate, '%Y%m%d'); 
