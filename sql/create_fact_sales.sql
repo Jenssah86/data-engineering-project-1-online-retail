@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS fact_sales (
     product_key INT,
     date_key INT,
     quantity INT,
-    price DECIMAL(10, 2),
-    total_price DECIMAL(10, 2),
+    price DECIMAL(18, 2),
+    total_price DECIMAL(18, 2),
     FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key), -- Establish foreign key relationship with dim_customer
     FOREIGN KEY (product_key) REFERENCES dim_product(product_key), -- Establish foreign key relationship with dim_product
     FOREIGN KEY (date_key) REFERENCES dim_date(date_key) -- Establish foreign key relationship with dim_date

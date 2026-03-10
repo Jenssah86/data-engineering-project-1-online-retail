@@ -1,0 +1,11 @@
+[sqlfluff]
+dialect = mysql
+templater = jinja
+max_line_length = 120
+
+[sqlfluff:rules]
+# L009 en L031 zijn vaak te streng voor MySQL SP's
+exclude_rules = L009,L031
+
+[sqlfluff:rules:L010]
+capitalisation_policy = upper

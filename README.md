@@ -4,6 +4,10 @@
 
 Dit project bouwt een end‑to‑end data‑engineering pipeline op basis van de **Online Retail II** dataset.
 
+**Hier te downloaden:** https://archive.ics.uci.edu/dataset/502/online+retail+ii
+
+ 
+
 De workflow volgt de **Medallion‑architectuur** (Bronze → Silver → Gold)
 
 en maakt gebruik van **Python**, **MySQL**, **SQL‑modellering**, **incremental loads**
