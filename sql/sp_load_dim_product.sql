@@ -9,4 +9,4 @@ BEGIN
     GROUP BY StockCode
     ON DUPLICATE KEY UPDATE 
         description = VALUES(description); -- Update de description als er een nieuwe waarde is
-END $$
+END

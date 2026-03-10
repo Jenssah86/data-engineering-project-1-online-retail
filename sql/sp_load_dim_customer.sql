@@ -8,4 +8,4 @@ BEGIN
     WHERE CustomerID IS NOT NULL
     ON DUPLICATE KEY UPDATE 
         country = VALUES(country); -- Update het land als er een nieuwe waarde is
-END $$
+END

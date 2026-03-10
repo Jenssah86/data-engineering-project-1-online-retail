@@ -33,4 +33,4 @@ BEGIN
         quantity = VALUES(quantity), -- Update de quantity als er een nieuwe waarde is
         price = VALUES(price), -- Update de price als er een nieuwe waarde is
         total_price = VALUES(total_price); -- Update de total_price als er een nieuwe waarde is
-END $$
+END

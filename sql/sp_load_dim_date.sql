@@ -13,4 +13,4 @@ BEGIN
     ON d.date_key = DATEFORMAT(s.InvoiceDate, '%Y%m%d') -- Transformeer full_date naar date_key in het formaat YYYYMMDD
     WHERE d.date_key IS NULL; -- Alleen nieuwe datums toevoegen
     GROUP BY DATE(s.InvoiceDate); -- Groeperen op datum om dubbele invoer te voorkomen
-END $$
+END
