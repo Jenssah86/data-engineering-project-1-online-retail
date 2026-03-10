@@ -1,4 +1,4 @@
-name: CI Pipeline # This workflow runs on push and pull request events to ensure code quality and functionality
+name: python lint # This workflow runs on push and pull request events to ensure code quality and functionality
 
 on:
   push:
