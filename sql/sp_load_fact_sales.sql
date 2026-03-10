@@ -1,5 +1,3 @@
-DELIMITER $$
-
 CREATE PROCEDURE sp_load_fact_sales() -- Deze procedure laadt de fact_sales tabel met verkoopgegevens en koppelt deze aan de dimensietabellen
 BEGIN
     INSERT INTO fact_sales (
@@ -36,5 +34,3 @@ BEGIN
         price = VALUES(price), -- Update de price als er een nieuwe waarde is
         total_price = VALUES(total_price); -- Update de total_price als er een nieuwe waarde is
 END $$
-
-DELIMITER ;

@@ -1,5 +1,3 @@
-DELIMITER $$
-
 CREATE PROCEDURE sp_load_dim_date() -- Deze procedure laadt de dim_date tabel met unieke datums en hun bijbehorende jaar, maand en dag
 BEGIN
     INSERT INTO dim_date (date_key, full_date, year, month, day, weekday, quarter)
@@ -16,5 +14,3 @@ BEGIN
     WHERE d.date_key IS NULL; -- Alleen nieuwe datums toevoegen
     GROUP BY DATE(s.InvoiceDate); -- Groeperen op datum om dubbele invoer te voorkomen
 END $$
-
-DELIMITER ;

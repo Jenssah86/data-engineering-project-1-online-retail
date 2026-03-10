@@ -1,5 +1,3 @@
-DELIMITER $$
-
 CREATE PROCEDURE sp_load_dim_product() -- Deze procedure laadt de dim_product tabel met unieke producten en hun beschrijving
 BEGIN
     INSERT INTO dim_product (stock_code, description)
@@ -12,5 +10,3 @@ BEGIN
     ON DUPLICATE KEY UPDATE 
         description = VALUES(description); -- Update de description als er een nieuwe waarde is
 END $$
-
-DELIMITER ;
