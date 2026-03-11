@@ -1,12 +1,11 @@
 CREATE PROCEDURE sp_load_dim_date() -- Deze procedure laadt de dim_date tabel met unieke datums en hun bijbehorende jaar, maand en dag
 BEGIN
-    INSERT INTO dim_date (date_key, full_date, year, month, day, weekday, quarter)
+    INSERT INTO dim_date (date_key, full_date, year, month, day, quarter)
     SELECT DISTINCT 
         DATE(InvoiceDate) AS date,
         YEAR(InvoiceDate) AS year,
         MONTH(InvoiceDate) AS month,
         DAY(InvoiceDate) AS day,
-        WEEKDAY(InvoiceDate) AS weekday,
         QUARTER(InvoiceDate) AS quarter
     FROM silver_sales s
     LEFT JOIN dim_date d 

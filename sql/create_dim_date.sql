@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS dim_date (
     year INT,
     month INT,
     day INT,
-    weekday INT,
     quarter INT
 );
 
