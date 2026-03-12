@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 # ---------------------------------------------------------------------------------------
 load_dotenv()  # leest .env in
 
+# haalt de database connectie gegevens op uit de omgevingsvariabelen, deze moeten in een .env bestand staan in dezelfde map als dit script
 MYSQL_USER = os.getenv("MYSQL_USER")
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
 MYSQL_HOST = os.getenv("MYSQL_HOST")
