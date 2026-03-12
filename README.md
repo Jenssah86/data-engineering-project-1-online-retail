@@ -6,6 +6,8 @@ Dit project bouwt een end‑to‑end data‑engineering pipeline op basis van de
 
 **Hier te downloaden:** https://archive.ics.uci.edu/dataset/502/online+retail+ii
 
+**Tip:** split de dataset op in meerdere delen zodat je incremental\_load kan testen!
+
  
 
 De workflow volgt de **Medallion‑architectuur** (Bronze → Silver → Gold)
